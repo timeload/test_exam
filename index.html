@@ -1,0 +1,142 @@
+<HTML>
+  <HEAD>
+    <TITLE>Calculator</TITLE> 
+    <SCRIPT LANGUAGE="LiveSCRIPT"> 
+    <!--start of JavaScript-- 
+    <!--start of JavaScript-- 
+     function addChar(input, character){ 
+        if(input.value == null || input.value == "0") 
+          input.value = character 
+        else 
+          input.value += character 
+      } 
+      function deleteChar(input){ 
+        input.value = input.value.substring(0, input.value.length - 1) 
+      } 
+      function changeSign(input){ 
+        if(input.value.substring(0, 1) == "-") 
+          input.value = input.value.substring(1, input.value.length) 
+        else 
+          input.value = "-" + input.value 
+      } 
+      function compute(form){ 
+        form.display.value = eval(form.display.value) 
+      }
+      function square(form){ 
+        form.display.value = eval(form.display.value) * eval(form.display.value) 
+      } 
+      function checkNum(str) { 
+        for (var i = 0; i < str.length; i++) { 
+                var ch = str.substring(i, i+1) 
+                if (ch < "0" || ch > "9") { 
+                        if (ch != "/" && ch != "*" && ch != "+" && ch != "-"  
+                                && ch != "(" && ch!= ")") { 
+                                alert("invalid entry!") 
+                                return false 
+                        } 
+                } 
+        } 
+        return true 
+      }  
+    //--end of JavaScript --> 
+    </SCRIPT> 
+  </HEAD> 
+  <BODY> 
+    <CENTER> 
+    <H1> 계산기</H1>
+    <FORM> 
+      <TABLE BORDER="3"> 
+        <TR> 
+          <TD ALIGN=CENTER COLSPAN=4> 
+            <INPUT NAME="display" value="0" size=20> 
+          </TD> 
+        </TR>
+        <TR ALIGN=CENTER> 
+          <TD> 
+            <INPUT TYPE="button" value="    7    "   
+               onClick="addChar(this.form.display, '7')"> 
+          </TD> 
+          <TD> 
+            <INPUT TYPE="button" value="    8    "  
+               onClick="addChar(this.form.display, '8')"> 
+          </TD> 
+          <TD> 
+            <INPUT TYPE="button" value="    9    " 
+               onClick="addChar(this.form.display, '9')"> 
+          </TD> 
+          <TD> 
+            <INPUT TYPE="button" value="    /     " 
+               onClick="addChar(this.form.display, '/')"> 
+          </TD> 
+        </TR>
+        <TR ALIGN=CENTER> 
+          <TD> 
+            <INPUT TYPE="button" value="    4    " 
+               onClick="addChar(this.form.display, '4')"> 
+          </TD> 
+          <TD> 
+            <INPUT TYPE="button" value="    5    " 
+               onClick="addChar(this.form.display, '5')"> 
+          </TD> 
+          <TD> 
+            <INPUT TYPE="button" value="    6    " 
+               onClick="addChar(this.form.display, '6')"> 
+          </TD> 
+          <TD> 
+            <INPUT TYPE="button" value="    *    " 
+               onClick="addChar(this.form.display, '*')"> 
+          </TD> 
+        </TR>
+        <TR ALIGN=CENTER> 
+          <TD> 
+            <INPUT TYPE="button" value="    1    " 
+               onClick="addChar(this.form.display, '1')"> 
+          </TD> 
+          <TD> 
+            <INPUT TYPE="button" value="    2    " 
+               onClick="addChar(this.form.display, '2')"> 
+          </TD> 
+          <TD> 
+            <INPUT TYPE="button" value="    3    " 
+               onClick="addChar(this.form.display, '3')"> 
+          </TD> 
+          <TD> 
+            <INPUT TYPE="button" value="     -    "  
+               onClick="addChar(this.form.display, '-')"> 
+          </TD> 
+        </TR>
+        <TR ALIGN=CENTER> 
+          <TD> 
+            <INPUT TYPE="button" value="    0    " 
+               onClick="addChar(this.form.display, '0')">  
+          </TD> 
+          <TD> 
+            <INPUT TYPE="button" value="     .    " 
+               onClick="addChar(this.form.display, '.')">  
+          </TD> 
+          <TD> 
+            <INPUT TYPE="button" value="   +/-   " 
+               onClick="changeSign(this.form.display)"> 
+          </TD> 
+          <TD> 
+            <INPUT TYPE="button" value="    +    " 
+               onClick="addChar(this.form.display, '+')"> 
+          </TD> 
+        </TR>
+        
+        <TR ALIGN=CENTER> 
+          <TD colspan="2"> 
+            <INPUT TYPE="button" value="      Enter      " NAME="enter" 
+               onClick="if (checkNum(this.form.display.value)) 
+               { compute(this.form) }"> 
+          </TD> 
+          <TD colspan="2"> 
+            <INPUT TYPE="button" value="         C          " 
+               onClick="this.form.display.value = 0 "> 
+          </TD> 
+        </TR> 
+    </TABLE> 
+    </FORM> 
+    </CENTER>
+  </BODY> 
+</HTML>
